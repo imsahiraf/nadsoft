@@ -33,7 +33,7 @@
                     // Check if there are any members with the given ParentId
                     $hasChildren = false;
                     foreach ($members as $member) {
-                        if ($member['ParentId'] == $parentId) {
+                        if ($member['parentId'] == $parentId) {
                             $hasChildren = true;
                             break;
                         }
@@ -47,9 +47,9 @@
                     // Render the list of child members for the current ParentId
                     echo "<ul>";
                     foreach ($members as $member) {
-                        if ($member['ParentId'] == $parentId) {
-                            echo "<li>{$member['Name']}</li>";
-                            renderMembers($members, $member['Id']);
+                        if ($member['parentId'] == $parentId) {
+                            echo "<li value=\"{$member['id']}\">{$member['name']}</li>";
+                            renderMembers($members, $member['id']);
                         }
                     }
                     echo "</ul>";
