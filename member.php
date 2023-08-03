@@ -26,4 +26,13 @@ class Member
 }
 
 }
-?>
+
+if($_GET['api']){
+    // Create a new Member object and pass the database connection to it
+    $member = new Member($db);
+
+    // Fetch the list of all members from the database
+    $membersList = $member->getAllMembers();
+
+    echo json_encode($membersList);
+}
